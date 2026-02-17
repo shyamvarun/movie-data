@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { getTopMoviesByTown } from '../services/api';
 import './TopMoviesByTown.css';
 
@@ -8,13 +8,9 @@ function TopMoviesByTown() {
   const [limit, setLimit] = useState(10);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [searchTerm, setSearchTerm] = useState(''); // ✅ NEW
+  const [searchTerm, setSearchTerm] = useState('');
 
-  useEffect(() => {
-    fetchTopMovies();
-  }, [dayCode, limit]);
-
-  const fetchTopMovies = async () => {
+  const fetchTopMovies = useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
@@ -26,9 +22,13 @@ function TopMoviesByTown() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [dayCode, limit]);
 
-  // ✅ Filter towns based on search
+  useEffect(() => {
+    fetchTopMovies();
+  }, [fetchTopMovies]);
+
+  // Filter towns
   const filteredTowns = Object.keys(topMoviesData).filter(townName =>
     townName.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -73,9 +73,9 @@ function TopMoviesByTown() {
       <div className="top-controls">
         <div className="control-group">
           <label htmlFor="dayCode">Select Day:</label>
-          <select 
+          <select
             id="dayCode"
-            value={dayCode} 
+            value={dayCode}
             onChange={(e) => setDayCode(e.target.value)}
             className="control-select"
           >
@@ -90,9 +90,9 @@ function TopMoviesByTown() {
 
         <div className="control-group">
           <label htmlFor="limit">Show Top:</label>
-          <select 
+          <select
             id="limit"
-            value={limit} 
+            value={limit}
             onChange={(e) => setLimit(Number(e.target.value))}
             className="control-select"
           >
@@ -104,7 +104,7 @@ function TopMoviesByTown() {
         </div>
       </div>
 
-      {/* ✅ NEW: Search Filter */}
+      {/* Search Filter */}
       <div className="search-container">
         <input
           type="text"
@@ -113,15 +113,17 @@ function TopMoviesByTown() {
           onChange={(e) => setSearchTerm(e.target.value)}
           className="search-input"
         />
+
         {searchTerm && (
-          <button 
-            className="clear-search" 
+          <button
+            className="clear-search"
             onClick={() => setSearchTerm('')}
             aria-label="Clear search"
           >
             ✕
           </button>
         )}
+
         <p className="search-results">
           Showing {filteredTowns.length} of {townNames.length} towns
         </p>
@@ -135,11 +137,11 @@ function TopMoviesByTown() {
         <div className="towns-grid">
           {filteredTowns.map((townName) => {
             const movies = topMoviesData[townName];
-            
+
             return (
               <div key={townName} className="town-card">
                 <h3 className="town-name">📍 {townName}</h3>
-                
+
                 {movies.length === 0 ? (
                   <p className="no-movies">No data available</p>
                 ) : (
