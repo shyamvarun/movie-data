@@ -1,0 +1,205 @@
+.comparison-form-container {
+  background: #f5f6fa;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  max-width: 1400px;
+  margin: auto;
+}
+
+/* Sections */
+
+.form-section {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid #eaeaea;
+}
+
+.form-section:last-of-type {
+  border-bottom: none;
+}
+
+.form-section h3 {
+  color: #111;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+/* HERO */
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.hero-card {
+  background: #000;
+  color: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: 0.25s ease;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.hero-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.5);
+}
+
+.hero-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hero-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.select-hero-btn {
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  border-radius: 6px;
+  border: none;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: white;
+  cursor: pointer;
+}
+
+.movie-dropdown {
+  margin-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  padding-top: 1rem;
+}
+
+.movie-checkbox-label {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  color: #fff;
+  border-radius: 6px;
+}
+
+.movie-checkbox-label:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+/* TERRITORY */
+
+.territory-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.territory-btn {
+  padding: 0.7rem 1.2rem;
+  border-radius: 25px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  background: #e5e5e5;
+}
+
+.territory-btn.active {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+}
+
+/* TOWNS */
+
+.select-all-towns-btn {
+  margin-bottom: 1rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  background: #111;
+  color: white;
+}
+
+.town-search {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 1rem;
+}
+
+.towns-container {
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 0.8rem;
+}
+
+.checkbox-label {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.6rem;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+/* DAY BUTTONS */
+
+.day-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.day-btn {
+  padding: 0.7rem 1.3rem;
+  border-radius: 25px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  background: #e5e5e5;
+}
+
+.day-btn.active {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  box-shadow: 0 0 10px rgba(102,126,234,0.5);
+}
+
+/* BIG COMPARE BUTTON */
+
+.compare-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.compare-btn-big {
+  padding: 1.2rem 4rem;
+  font-size: 1.2rem;
+  border-radius: 14px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  box-shadow: 0 10px 25px rgba(102,126,234,0.4);
+}
+
+.selected-count {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: #4caf50;
+  color: white;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+}

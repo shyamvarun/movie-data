@@ -1,0 +1,639 @@
+.top-movies-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.top-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.top-header h2 {
+  color: rgb(0, 0, 0);
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.top-subtitle {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+}
+
+/* Controls */
+.top-controls {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 40px;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 25px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.control-group label {
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.control-select {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 2px solid white;
+  background: rgb(0, 0, 0);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+  min-width: 150px;
+}
+
+.control-select:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.control-select:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+/* Towns Grid */
+.towns-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 25px;
+}
+
+.town-card {
+  background: white;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.town-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.town-name {
+  text-align: center;
+  color: #667eea;
+  margin: 0 0 20px 0;
+  font-size: 1.5rem;
+  border-bottom: 3px solid #667eea;
+  padding-bottom: 10px;
+}
+
+.no-movies {
+  text-align: center;
+  color: #999;
+  font-style: italic;
+  padding: 20px;
+}
+
+/* Movies List */
+.movies-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.movie-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 12px;
+  transition: all 0.3s;
+}
+
+.movie-item:hover {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  transform: scale(1.02);
+}
+
+.rank {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #667eea;
+  min-width: 40px;
+  text-align: center;
+}
+
+.movie-item:hover .rank {
+  color: white;
+}
+
+/* Medal colors for top 3 */
+.movie-item:nth-child(1) .rank {
+  color: #FFD700;
+  font-size: 1.8rem;
+}
+
+.movie-item:nth-child(2) .rank {
+  color: #C0C0C0;
+  font-size: 1.7rem;
+}
+
+.movie-item:nth-child(3) .rank {
+  color: #CD7F32;
+  font-size: 1.6rem;
+}
+
+.movie-details {
+  flex: 1;
+}
+
+.movie-title {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 3px;
+}
+
+.hero-name {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.movie-item:hover .hero-name {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.collection {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #27ae60;
+  min-width: 100px;
+  text-align: right;
+}
+
+.movie-item:hover .collection {
+  color: #fff;
+}
+
+/* Loading State */
+.top-loading-container {
+  text-align: center;
+  padding: 100px 20px;
+  color: white;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto 20px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.top-loading-container p {
+  font-size: 1.3rem;
+}
+
+/* Error State */
+.top-error-container {
+  text-align: center;
+  padding: 80px 20px;
+  color: white;
+}
+
+.top-error-container p {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+}
+
+.retry-btn {
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  background: white;
+  color: #667eea;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.retry-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* No Data State */
+.top-no-data {
+  text-align: center;
+  padding: 100px 20px;
+  color: white;
+  font-size: 1.3rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .towns-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .top-controls {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .control-select {
+    min-width: 100%;
+  }
+
+  .top-header h2 {
+    font-size: 1.6rem;
+  }
+
+  .town-name {
+    font-size: 1.3rem;
+  }
+
+  .movie-title {
+    font-size: 1rem;
+  }
+}
+
+.top-movies-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.top-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.top-header h2 {
+  color: white;
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.top-subtitle {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+}
+
+/* Controls */
+.top-controls {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 30px;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 25px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.control-group label {
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.control-select {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 2px solid white;
+  background: white;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+  min-width: 150px;
+}
+
+.control-select:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.control-select:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+/* ✅ NEW: Search Filter Styles */
+.search-container {
+  max-width: 600px;
+  margin: 0 auto 30px;
+  position: relative;
+}
+
+.search-input {
+  width: 100%;
+  padding: 15px 45px 15px 20px;
+  font-size: 1.1rem;
+  border: 3px solid white;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+  transition: all 0.3s;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.search-input:focus {
+  outline: none;
+  background: white;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  transform: translateY(-2px);
+}
+
+.search-input::placeholder {
+  color: #999;
+}
+
+.clear-search {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #667eea;
+  color: white;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  margin-top: -12px;
+}
+
+.clear-search:hover {
+  background: #764ba2;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.search-results {
+  text-align: center;
+  color: white;
+  font-size: 0.95rem;
+  margin-top: 10px;
+  opacity: 0.9;
+}
+
+.no-results {
+  text-align: center;
+  padding: 60px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  margin: 20px 0;
+}
+
+.no-results p {
+  color: white;
+  font-size: 1.2rem;
+}
+
+/* Towns Grid */
+.towns-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 25px;
+}
+
+.town-card {
+  background: white;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.town-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.town-name {
+  text-align: center;
+  color: #667eea;
+  margin: 0 0 20px 0;
+  font-size: 1.5rem;
+  border-bottom: 3px solid #667eea;
+  padding-bottom: 10px;
+}
+
+.no-movies {
+  text-align: center;
+  color: #999;
+  font-style: italic;
+  padding: 20px;
+}
+
+/* Movies List */
+.movies-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.movie-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 12px;
+  transition: all 0.3s;
+}
+
+.movie-item:hover {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  transform: scale(1.02);
+}
+
+.rank {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #667eea;
+  min-width: 40px;
+  text-align: center;
+}
+
+.movie-item:hover .rank {
+  color: white;
+}
+
+/* Medal colors for top 3 */
+.movie-item:nth-child(1) .rank {
+  color: #FFD700;
+  font-size: 1.8rem;
+}
+
+.movie-item:nth-child(2) .rank {
+  color: #C0C0C0;
+  font-size: 1.7rem;
+}
+
+.movie-item:nth-child(3) .rank {
+  color: #CD7F32;
+  font-size: 1.6rem;
+}
+
+.movie-details {
+  flex: 1;
+}
+
+.movie-title {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 3px;
+}
+
+.hero-name {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.movie-item:hover .hero-name {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.collection {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #27ae60;
+  min-width: 100px;
+  text-align: right;
+}
+
+.movie-item:hover .collection {
+  color: #fff;
+}
+
+/* Loading State */
+.top-loading-container {
+  text-align: center;
+  padding: 100px 20px;
+  color: white;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto 20px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.top-loading-container p {
+  font-size: 1.3rem;
+}
+
+/* Error State */
+.top-error-container {
+  text-align: center;
+  padding: 80px 20px;
+  color: white;
+}
+
+.top-error-container p {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+}
+
+.retry-btn {
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  background: white;
+  color: #667eea;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.retry-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* No Data State */
+.top-no-data {
+  text-align: center;
+  padding: 100px 20px;
+  color: white;
+  font-size: 1.3rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .towns-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .top-controls {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .control-select {
+    min-width: 100%;
+  }
+
+  .top-header h2 {
+    font-size: 1.6rem;
+  }
+
+  .search-input {
+    font-size: 1rem;
+    padding: 12px 40px 12px 15px;
+  }
+
+  .town-name {
+    font-size: 1.3rem;
+  }
+
+  .movie-title {
+    font-size: 1rem;
+  }
+}
+
